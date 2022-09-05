@@ -4,7 +4,7 @@ const { Octokit } = require('octokit');
 
 try {
     const github_token = core.getInput('github-token');
-    const repositories = core.getInput('repositories');
+    const repositories = JSON.parse(core.getInput('repositories'));
     const title = core.getInput('title');
     const body = core.getInput('body');
     const labels = core.getInput('labels');
