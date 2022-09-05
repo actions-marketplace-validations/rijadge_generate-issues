@@ -1,0 +1,25 @@
+name: 'Create github issues'
+description: 'Create issues in several repositories.'
+inputs:
+  github-token:  # id of input
+    description: 'Github token.'
+    required: true
+  repositories:  # id of input
+    description: 'List of repositories to create issues. It must be an array. Example, ["owner/repo1", "owner/repo2"].'
+    required: true
+  title:  # id of input
+    description: 'The title of issue.'
+    required: true
+    default: "API changes"
+  body:  # id of input
+    description: 'The body of issue to be created.'
+    required: true
+  labels:  # id of input
+    description: 'The labels of the issue.'
+    required: false
+outputs:
+  are-issues-created: # id of output
+    description: 'A boolean that returns if the issues are created or not.'
+runs:
+  using: 'node16'
+  main: 'create-issues.js'
