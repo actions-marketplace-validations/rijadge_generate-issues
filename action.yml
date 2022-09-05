@@ -1,5 +1,8 @@
 name: 'Create github issues'
 description: 'Create issues in several repositories.'
+branding: 
+  icon: activity
+  color: blue
 inputs:
   github-token:  # id of input
     description: 'Github token.'
