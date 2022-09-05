@@ -24,7 +24,7 @@ try {
         let owner = repoValue[0];
         let repo = repoValue[1];
 
-        await octokit.request(`POST /repos/${owner}/${repo}/issues`, {
+        octokit.request(`POST /repos/${owner}/${repo}/issues`, {
             owner,
             repo,
             title,
@@ -33,6 +33,15 @@ try {
                 'bug'
             ]
         })
+        .then(res => res.json())
+        .then(json => {
+            if (json.Status == 201) {
+                console.log(`Issue created at ${repository}`)
+            }
+            else {
+                console.log(`Could not create issue at ${repository}. The error: ${JSON.stringify(json)}`)
+            }
+        });
     }
     
 
